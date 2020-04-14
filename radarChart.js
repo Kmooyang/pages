@@ -264,6 +264,7 @@ function RadarChart(id, data, options) {
 				.attr('y', newY)
 				.text(Format(d[value]))
 				.transition().duration(200)
+				.style('opacity', 1)
 				.style("fill", "#ffffff");
 
 		})
