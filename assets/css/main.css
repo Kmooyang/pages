@@ -2092,7 +2092,7 @@ input, select, textarea {
 		background: #35b88f url("images/overlay.svg") bottom center no-repeat;
 		padding: 5em 0 5em 0;
 		margin: 0;
-		background-size: 100% auto;
+		background-size: 75% auto;
 	}
 
 		#banner .button {
@@ -2111,7 +2111,7 @@ input, select, textarea {
 			}
 
 		#banner p {
-			margin: 0 0;
+			margin: 0 0 2em 0;
 			color: black;
 			padding: 0em 0 2em 0;
 
