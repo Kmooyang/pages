@@ -2089,10 +2089,10 @@ input, select, textarea {
 		color: #fff;
 		text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.25);
 		text-align: center;
-		background: #35b88f url("images/overlay.svg") bottom center no-repeat;
+		background: #35b88f url("images/banner.svg") bottom center no-repeat;
 		padding: 5em 0 5em 0;
 		margin: 0;
-		background-size: 75% auto;
+		background-size: 125% auto;
 	}
 
 		#banner .button {
@@ -2111,10 +2111,7 @@ input, select, textarea {
 			}
 
 		#banner p {
-			margin: 0 0 2em 0;
-			color: black;
-			padding: 0em 0 2em 0;
-
+			margin: 0;
 		}
 
 		#banner footer {
