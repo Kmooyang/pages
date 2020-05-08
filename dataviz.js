@@ -1,4 +1,4 @@
-function DataViz(id, data, options) {
+function DataViz(data, options) {
   var cfg = {
     width: 800,
     height: 800,
