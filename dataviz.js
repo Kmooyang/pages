@@ -87,7 +87,7 @@ var mouseleave = function(d) {
 // Add dots
 svg.append('g')
   .selectAll("dot")
-  .data(data.filter(function(d,i){return i<3000})) // the .filter part is just to keep a few dots on the chart, not all of them
+  .data(data.filter(function(d,i){return i<2000})) // the .filter part is just to keep a few dots on the chart, not all of them
   .enter()
   .append("circle")
     .attr("cx", function (d) { return x(d.year); } )
