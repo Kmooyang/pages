@@ -53,7 +53,7 @@ var mouseover = function(d) {
 
   d3.selectAll(".dot")
     .transition()
-    .html("The exact value of<br>the duration is: " + d.duration + "<br/>The name of the song is: " + d.track)(200)
+    .html("The exact value of<br>the duration is: " + d.duration + "minutes <br/>The name of the song is: " + d.track)(200)
     .style("fill", "lightgrey")
     .attr("r", 3)
 
@@ -66,7 +66,7 @@ var mouseover = function(d) {
 
 var mousemove = function(d) {
   tooltip
-    .html("The exact value of<br>the duration is: " + d.duration + "<br/>The name of the song is: " + d.track)
+    .html("The exact value of<br>the duration is: " + d.duration + "minutes <br/>The name of the song is: " + d.track)
     .style("left", (d3.mouse(this)[0]+90) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
     .style("top", (d3.mouse(this)[1]) + "px")
 }
@@ -93,7 +93,7 @@ svg.append('g')
     .attr("cx", function (d) { return x(d.year); } )
     .attr("cy", function (d) { return y(d.duration); } )
     .attr("r", 7)
-    .style("fill", "white")
+    .style("fill", "69b3a2")
     .style("opacity", 0.3)
     .style("stroke", "white")
   .on("mouseover", mouseover )
