@@ -1,7 +1,7 @@
 function DataViz(data, options) {
   var cfg = {
     width: 800,
-    height: 600,
+    height: 550,
 	};
 
   if('undefined' !== typeof options){
