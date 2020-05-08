@@ -99,7 +99,4 @@ svg.append('g')
   .on("mouseover", mouseover )
   .on("mousemove", mousemove )
   .on("mouseleave", mouseleave )
-
-
-})
 }
