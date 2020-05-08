@@ -1,7 +1,7 @@
 function DataViz(data, options) {
   var cfg = {
     width: 800,
-    height: 800,
+    height: 600,
 	};
 
   if('undefined' !== typeof options){
@@ -30,7 +30,7 @@ svg.append("g")
 // Its opacity is set to 0: we don't see it by default.
 var tooltip = d3.select("#my_dataviz")
   .append("div")
-  .style("opacity", 0)
+  .style("opacity", 1)
   .attr("class", "tooltip")
   .style("background-color", "white")
   .style("border", "solid")
@@ -53,7 +53,7 @@ var mouseover = function(d) {
 
   d3.selectAll(".dot")
     .transition()
-    .("The exact value of<br>the duration is: " + d.duration + "<br/>The name of the song is: " + d.track)(200)
+    .html("The exact value of<br>the duration is: " + d.duration + "<br/>The name of the song is: " + d.track)(200)
     .style("fill", "lightgrey")
     .attr("r", 3)
 
@@ -75,11 +75,11 @@ var mousemove = function(d) {
 var mouseleave = function(d) {
   tooltip
     .transition()
-    .duration(200)
+    //.duration(200)
     .style("opacity", 0)
      d3.selectAll(".dot")
     .transition()
-    .duration(200)
+    //.duration(200)
     .style("fill", "lightgrey")
     .attr("r", 5 )
 }
