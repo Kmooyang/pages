@@ -53,7 +53,7 @@ var mouseover = function(d) {
 
   d3.selectAll(".dot")
     .transition()
-    .("The exact value of<br>the duration is: " + d.duration + "<br/>The name of the song is: " + d.track)(200)
+    .html("The exact value of<br>the duration is: " + d.duration + "<br/>The name of the song is: " + d.track)(200)
     .style("fill", "lightgrey")
     .attr("r", 3)
 
