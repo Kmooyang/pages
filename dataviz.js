@@ -20,7 +20,7 @@ svg.append("g")
 // Add Y axis
 var y = d3.scaleLinear()
 
-  .domain([0, 15])
+  .domain([0, 10])
 
   .range([ cfg.height, 0]);
 svg.append("g")
