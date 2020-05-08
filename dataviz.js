@@ -11,7 +11,7 @@ function DataViz(data, options) {
   }//if
 // Add X axis
 var x = d3.scaleLinear()
-  .domain([1960, 2010])
+  .domain([1950, 2010])
   .range([ 0, cfg.width ]);
 svg.append("g")
   .attr("transform", "translate(0," +cfg.height + ")")
@@ -20,7 +20,7 @@ svg.append("g")
 // Add Y axis
 var y = d3.scaleLinear()
 
-  .domain([0, 70])
+  .domain([0, 15])
 
   .range([ cfg.height, 0]);
 svg.append("g")
