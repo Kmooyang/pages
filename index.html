@@ -141,9 +141,15 @@
 	    .attr("transform",
 		  "translate(" + margin.left + "," + margin.top + ")");
 
+	var datavizoptions = {
+				width: width,
+				height: height,
+			};
 	//Read the data
 
 	d3.csv("spotifyPlaylistFixed.csv", function(data) {
+		DataViz(data, datavizoptions);
+	})
 
 		/*
 	  // Add X axis

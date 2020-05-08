@@ -1,3 +1,5 @@
+function DataViz(id, data, options) {
+
 // Add X axis
 var x = d3.scaleLinear()
   .domain([1960, 2010])
@@ -91,3 +93,4 @@ svg.append('g')
 
 
 })
+}
