@@ -28,16 +28,16 @@ svg.append("g")
 
   svg.append("text")
       .attr("text-anchor", "end")
-      .attr("x", width/2 + margin.left)
-      .attr("y", height)
+      .attr("x", margin.left)
+      .attr("y", height+50)
       .text("Years");
 
   // Y axis label:
   svg.append("text")
       .attr("text-anchor", "end")
       .attr("transform", "rotate(-90)")
-      .attr("y", -margin.left + 50)
-      .attr("x", -margin.top - height/2 + 20)
+      .attr("y", -margin.left)
+      .attr("x", -margin.top)
       .text("Minutes")
 
 // Add a tooltip div. Here I define the general feature of the tooltip: stuff that do not depend on the data point.
@@ -67,7 +67,7 @@ var mouseover = function(d) {
 
   d3.selectAll(".dot")
     .transition()
-    .html("The exact value of<br>the duration is: " + d.duration + "minutes <br/>The name of the song is: " + d.track)(200)
+    .html("The exact value of<br>the duration is: " + d.duration + " minutes <br/>The name of the song is: " + d.track)(200)
     .style("fill", "lightgrey")
     .attr("r", 3)
 
@@ -80,7 +80,7 @@ var mouseover = function(d) {
 
 var mousemove = function(d) {
   tooltip
-    .html("The exact value of<br>the duration is: " + d.duration + "minutes <br/>The name of the song is: " + d.track)
+    .html("The exact value of<br>the duration is: " + d.duration + " minutes <br/>The name of the song is: " + d.track)
     .style("left", (d3.mouse(this)[0]+90) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
     .style("top", (d3.mouse(this)[1]) + "px")
 }
