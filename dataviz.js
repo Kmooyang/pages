@@ -29,14 +29,14 @@ svg.append("g")
   svg.append("text")
       .attr("text-anchor", "end")
       .attr("x", width/2 + margin.left)
-      .attr("y", height + margin.top + 20)
+      .attr("y", height)
       .text("Years");
 
   // Y axis label:
   svg.append("text")
       .attr("text-anchor", "end")
       .attr("transform", "rotate(-90)")
-      .attr("y", -margin.left + 20)
+      .attr("y", -margin.left + 50)
       .attr("x", -margin.top - height/2 + 20)
       .text("Minutes")
 
