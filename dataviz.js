@@ -98,7 +98,7 @@ var mouseleave = function(d) {
     //.attr("r", 5 )
 }
 
-svg.selectAll(".tick text").attr("stroke", "white").style("font-size", 40)
+svg.selectAll(".tick text").attr("stroke", "white").style("font-size", 25)
 
 // Add dots
 svg.append('g')
