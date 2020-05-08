@@ -32,16 +32,16 @@ var tooltip = d3.select("#my_dataviz")
   .append("div")
   .style("opacity", 0)
   .attr("class", "tooltip")
-  .style("background-color", "white")
+  .style("background-color", "gray")
   .style("border", "solid")
   .style("border-width", "1px")
   .style("border-radius", "5px")
   .style("padding", "10px")
 
 // Color scale: give me a specie name, I return a color
-var color = d3.scaleOrdinal()
-  .domain(["setosa", "versicolor", "virginica" ])
-  .range([ "#440154ff", "#21908dff", "#fde725ff"])
+//var color = d3.scaleOrdinal()
+//  .domain(["setosa", "versicolor", "virginica" ])
+//  .range([ "#440154ff", "#21908dff", "#fde725ff"])
 
 
 // A function that change this tooltip when the user hover a point.
@@ -75,13 +75,13 @@ var mousemove = function(d) {
 var mouseleave = function(d) {
   tooltip
     .transition()
-    //.duration(200)
+    .duration(200)
     .style("opacity", 0)
-     d3.selectAll(".dot")
-    .transition()
+     //d3.selectAll(".dot")
+    //.transition()
     //.duration(200)
-    .style("fill", "lightgrey")
-    .attr("r", 5 )
+    //.style("fill", "lightgrey")
+    //.attr("r", 5 )
 }
 
 // Add dots
