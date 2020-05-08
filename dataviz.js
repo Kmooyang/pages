@@ -30,7 +30,7 @@ svg.append("g")
 // Its opacity is set to 0: we don't see it by default.
 var tooltip = d3.select("#my_dataviz")
   .append("div")
-  .style("opacity", 1)
+  .style("opacity", 0)
   .attr("class", "tooltip")
   .style("background-color", "white")
   .style("border", "solid")
