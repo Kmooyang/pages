@@ -205,7 +205,7 @@ function RadarChart(id, data, options) {
 			//Bring back the hovered over blob
 			d3.select(this)
 				.transition().duration(200)
-				.style("fill-opacity", 0.75);
+				.style("fill-opacity", 0.65);
 		})
 		.on('mouseout', function(){
 			//Bring back all blobs
@@ -215,8 +215,10 @@ function RadarChart(id, data, options) {
 		});
 
 	//Create the outlines
-	blobWrapper.append("path")
-		.attr("class", "radarStroke")
+	blobWrapper.append("path")//"radarStroke")
+		.attr("class", function(d) {
+			return "radarStroke" + " " + d[0][areaName].replace(/\s+/g, '')+"stroke"
+		})
 		.attr("d", function(d,i) { return radarLine(d); })
 		//.style("stroke-width", cfg.strokeWidth + "px")
 		.style("stroke-width", cfg.strokeWidth-.7)
@@ -224,6 +226,7 @@ function RadarChart(id, data, options) {
 		.style("fill", "none")
 		.style("filter" , "url(#glow)");
 
+	
 	//Append the circles
 	blobWrapper.selectAll(".radarCircle")
 		.data(function(d,i) { return d; })
@@ -250,6 +253,9 @@ function RadarChart(id, data, options) {
 		.data(function(d,i) { return d; })
 		.enter().append("circle")
 		.attr("class", "radarInvisibleCircle")
+		/*.attr("class", function(d) {
+			return "radarInvisibleCircle" + " " + d[0][areaName].replace(/\s+/g, '')+"circle"
+		})*/
 		.attr("r", cfg.dotRadius*1.5)
 		.attr("cx", function(d,i){ return rScale(d[value]) * Math.cos(angleSlice*i - Math.PI/2); })
 		.attr("cy", function(d,i){ return rScale(d[value]) * Math.sin(angleSlice*i - Math.PI/2); })
@@ -321,7 +327,7 @@ function RadarChart(id, data, options) {
 		//Bring back the hovered over blob
 		d3.select("." + data[d][0][areaName].replace(/\s+/g, ''))
 			.transition().duration(200)
-			.style("fill-opacity", 0.8);
+			.style("fill-opacity", 0.65)
 	}
 
 	// on mouseout for the legend symbol
@@ -331,11 +337,43 @@ function RadarChart(id, data, options) {
 			.transition().duration(200)
 			.style("fill-opacity", cfg.opacityArea);
 	}
+	
+	var clicked = false;
+	function mouseClick(d) {
+		if(clicked == false)
+		{
+			d3.selectAll(".radarArea")
+				.style("fill-opacity", 0);
+			d3.selectAll(".radarStroke")
+				.style("stroke-width", 0);
+			d3.selectAll(".radarCircle")
+				.style("fill-opactiy", 0);
+			d3.selectAll(".radarCircleWrapper")
+				.style("fill-opactiy", 0);
+			//Bring back the hovered over blob
+			d3.select("." + data[d][0][areaName].replace(/\s+/g, ''))
+				.style("fill-opacity", 0.65)
+			d3.select("." + data[d][0][areaName].replace(/\s+/g, '') + "stroke")
+				.style("stroke-width", 1.3)
+			clicked = true;
+		}
+		else
+		{
+			d3.selectAll(".radarArea")
+				.style("fill-opacity", cfg.opacityArea);
+			d3.selectAll(".radarStroke")
+				.style("stroke-width", 1.3);
+			d3.selectAll(".radarCircle")
+				.style("fill-opactiy", 0.8);
+			d3.selectAll(".radarCircleWrapper")
+				.style("fill-opactiy", 0.8);
+			clicked = false;
+		}
+	}
 
 	/////////////////////////////////////////////////////////
 	/////////////////// Draw the Legend /////////////////////
 	/////////////////////////////////////////////////////////
-
 	svg.append("g")
 		.attr("class", "legendOrdinal")
 		.attr("transform", "translate(" + cfg["legendPosition"]["x"] + "," + cfg["legendPosition"]["y"] + ")");
@@ -351,7 +389,8 @@ function RadarChart(id, data, options) {
 			return data[d][0][areaName];
 		}))
 		.on("cellover", function(d){ cellover(d); })
-		.on("cellout", function(d) { cellout(); });
+		.on("cellout", function(d) { cellout(); })
+		.on("cellclick", function(d){ mouseClick(d); });
 
 	svg.select(".legendOrdinal")
 		.call(legendOrdinal);
