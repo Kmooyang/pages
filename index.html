@@ -62,7 +62,10 @@
 </head>
 <body>
 	<div id="radar"></div>
+<<<<<<< HEAD
 <div class="radarChart"></div>
+=======
+>>>>>>> c9e0f3792d0cae511c475032de9a9c87eb4af842
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.scrolly.min.js"></script>
 <script src="assets/js/jquery.poptrox.min.js"></script>
@@ -122,9 +125,15 @@
 	<div class="dataviz"></div>
 	<script>
 	// set the dimensions and margins of the graph
+<<<<<<< HEAD
 	var margin = {top: 300, right: 500, bottom: 300, left: 530},
 	    width = 810, //- margin.left - margin.right,
 	    height = 800; //- margin.top - margin.bottom;
+=======
+	var margin = {top: 10, right: 10, bottom: 10, left: 10},
+	    width = 910 - margin.left - margin.right,
+	    height = 800 - margin.top - margin.bottom;
+>>>>>>> c9e0f3792d0cae511c475032de9a9c87eb4af842
 
 	// append the svg object to the body of the page
 	var svg = d3.select("#my_dataviz")
@@ -136,7 +145,11 @@
 		  "translate(" + margin.left + "," + margin.top + ")");
 
 	//Read the data
+<<<<<<< HEAD
 	d3.csv("spotifyPlaylistFixed.csv", function(data) {
+=======
+	d3.csv("spotifyPlaylistDurations.csv", function(data) {
+>>>>>>> c9e0f3792d0cae511c475032de9a9c87eb4af842
 
 	  // Add X axis
 	  var x = d3.scaleLinear()
@@ -148,12 +161,19 @@
 
 	  // Add Y axis
 	  var y = d3.scaleLinear()
+<<<<<<< HEAD
 	    .domain([0, 70])
+=======
+	    .domain([0, 30])
+>>>>>>> c9e0f3792d0cae511c475032de9a9c87eb4af842
 	    .range([ height, 0]);
 	  svg.append("g")
 	    .call(d3.axisLeft(y));
 
+<<<<<<< HEAD
 		
+=======
+>>>>>>> c9e0f3792d0cae511c475032de9a9c87eb4af842
 	  // Add a tooltip div. Here I define the general feature of the tooltip: stuff that do not depend on the data point.
 	  // Its opacity is set to 0: we don't see it by default.
 	  var tooltip = d3.select("#my_dataviz")
@@ -165,6 +185,7 @@
 	    .style("border-width", "1px")
 	    .style("border-radius", "5px")
 	    .style("padding", "10px")
+<<<<<<< HEAD
 
 	  // Color scale: give me a specie name, I return a color
 	  var color = d3.scaleOrdinal()
@@ -179,6 +200,22 @@
 	      .style("opacity", 1)
 	    selected_specie = d.years
 
+=======
+
+	  // Color scale: give me a specie name, I return a color
+	  var color = d3.scaleOrdinal()
+	    .domain(["setosa", "versicolor", "virginica" ])
+	    .range([ "#440154ff", "#21908dff", "#fde725ff"])
+
+	  
+	  // A function that change this tooltip when the user hover a point.
+	  // Its opacity is set to 1: we can now see it. Plus it set the text and position of tooltip depending on the datapoint (d)
+	  var mouseover = function(d) {
+	    tooltip
+	      .style("opacity", 1)
+	    //selected_specie = d.year
+
+>>>>>>> c9e0f3792d0cae511c475032de9a9c87eb4af842
 	    d3.selectAll(".dot")
 	      .transition()
 	      .duration(200)
@@ -234,7 +271,35 @@
 	</script>
 	<!-- Load d3.js -->
 	<script src="https://d3js.org/d3.v4.js"></script>
+<<<<<<< HEAD
 	
+=======
+
+	<!-- Create a div where the circle will take place -->
+	<div id="dataviz_basicZoom"></div>
+	<script>
+
+	// append the svg object to the body of the page
+	var svg = d3.select("#dataviz_basicZoom")
+	  .append("svg")
+	    .attr("width",  910)
+	    .attr("height",  800)
+	    .call(d3.zoom().on("zoom", function () {
+	       svg.attr("transform", d3.event.transform)
+	    }))
+	  .append("g")
+
+	svg
+	  .append("circle")
+	    .attr("cx", 0)
+	    .attr("cy", 0)
+	    .attr("r", 40)
+	    .style("fill-opacity", 0)
+	    //.style("fill", "#ffffff")
+		   //68b2a1")
+
+	</script>
+>>>>>>> c9e0f3792d0cae511c475032de9a9c87eb4af842
 	
 	<section id="banner">
 	<p>
